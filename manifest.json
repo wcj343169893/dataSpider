@@ -1,0 +1,50 @@
+{
+
+	"manifest_version": 2,
+	"name": "GoodsSpider",
+	"version": "1.1.5",
+
+	"description": "获取分销货源",
+
+	"icons": {
+		"48": "icons/icon-48.png"
+	},
+
+	"content_scripts": [
+		{
+			"matches": [
+				"*://*.1688.com/*"
+			],
+			"css":["css/style.css"],
+			"js": [
+				"js/jquery-2.2.3.min.js",
+				"js/jquery.storageapi.js",
+				"js/jquery.cookie.js",
+				"js/main.js"
+			]
+		}
+	],
+	"background": {
+		"scripts": [
+			"js/background.js"
+		]
+	},
+	"web_accessible_resources": [
+		"js/chrome.js",
+		"js/alibaba.js",
+		"js/btype.js",
+		"css/*.css",
+		"images/*.png",
+		"images/*/*.jpg",
+		"images/*/*.gif",
+		"images/*/*/*.png"
+	],
+	"permissions": [
+		"http://*/*",
+		"https://*/*",
+		"cookies",
+		"storage",
+		"webRequest",
+		"webRequestBlocking"
+	]
+}
