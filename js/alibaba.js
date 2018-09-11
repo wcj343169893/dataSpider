@@ -6,8 +6,9 @@ function categoryPage(){
 	var ids=[];
 	//商家分类页面，页面有滚动加载
 	$(".offer-list-row li").each(function() {
-		var prop = JSON.parse($(this).attr("data-prop"));
-		var id=prop["offer_id"];
+		//var prop = JSON.parse($(this).attr("data-prop"));
+		//var id=prop["offer_id"];
+		var id=$(this).data("offerid");
 		var title=$(this).find(".image a").attr("title");
 		ids.push(id);
 		$(this).find(".image").append("<input id='bck_"+id+"' type='checkbox' class='item_check' value='"+id+"' title='"+title+"'/>")
@@ -110,6 +111,9 @@ function checkPage(){
 		//某个小分类
 		categoryPage()
 	}else if(url.indexOf("offer_search.htm")>0){
+		//搜索页面
+		searchPage();
+	}else if(url.indexOf("selloffer")>0){
 		//搜索页面
 		searchPage();
 	}else if(url.indexOf("detail.1688.com")>0){
